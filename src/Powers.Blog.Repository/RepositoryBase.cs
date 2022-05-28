@@ -25,7 +25,37 @@ namespace Powers.Blog.Repository
             throw new NotImplementedException();
         }
 
+        public bool Delete(IEnumerable<TEntity> entities)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> DeleteAsync(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteAsync(IEnumerable<TEntity> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Disable(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DisableAsync(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Enable(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> EnableAsync(TEntity entity)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +65,17 @@ namespace Powers.Blog.Repository
             throw new NotImplementedException();
         }
 
+        public bool Insert(IEnumerable<TEntity> entities)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> InsertAsync(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> InsertAsync(IEnumerable<TEntity> entities)
         {
             throw new NotImplementedException();
         }
@@ -87,15 +127,20 @@ namespace Powers.Blog.Repository
 
         public bool SaveChanges()
         {
-            throw new NotImplementedException();
+            return _dbContext.SaveChanges() > 0;
         }
 
-        public Task<bool> SaveChangesAsync()
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await _dbContext.SaveChangesAsync() > 0;
+        }
+
+        public bool Update(TEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(TEntity entity)
+        public bool Update(IEnumerable<TEntity> entities)
         {
             throw new NotImplementedException();
         }
@@ -105,12 +150,27 @@ namespace Powers.Blog.Repository
             throw new NotImplementedException();
         }
 
+        public Task<bool> UpdateAsync(IEnumerable<TEntity> entities)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool VirtualDelete(TEntity entity)
         {
             throw new NotImplementedException();
         }
 
+        public bool VirtualDelete(IEnumerable<TEntity> entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> VirtualDeleteAsync(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> VirtualDeleteAsync(IEnumerable<TEntity> entity)
         {
             throw new NotImplementedException();
         }
