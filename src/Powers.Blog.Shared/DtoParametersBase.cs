@@ -29,5 +29,15 @@ namespace Powers.Blog.Shared
         /// 搜索字段
         /// </summary>
         public string? Q { get; set; }
+
+        /// <summary>
+        /// 开始时间
+        /// </summary>
+        public DateTime? StartTime { get; set; }
+
+        /// <summary>
+        /// 结束时间
+        /// </summary>
+        public DateTime? EndTime { get; set; }
     }
 }
