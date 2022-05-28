@@ -1,4 +1,5 @@
-﻿using Powers.Blog.IRepository;
+﻿using Microsoft.EntityFrameworkCore;
+using Powers.Blog.IRepository;
 using Powers.Blog.Shared;
 using Powers.Blog.Shared.EfCore;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 namespace Powers.Blog.Repository
 {
     public class RepositoryBase<TEntity, TId> : IRepositoryBase<TEntity, TId>
-        where TEntity : EntityBase<TId>, IEntity
+        where TEntity : EntityBase<TId>, IEntity, IEntityEnable, IEntityDelete
     {
         private readonly PowersBlogDbContext _dbContext;
 
@@ -22,62 +23,84 @@ namespace Powers.Blog.Repository
 
         public bool Delete(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Remove(entity);
+
+            return SaveChanges();
         }
 
         public bool Delete(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            _dbContext.RemoveRange(entities);
+
+            return SaveChanges();
         }
 
-        public Task<bool> DeleteAsync(TEntity entity)
+        public async Task<bool> DeleteAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                return Delete(entity);
+            });
         }
 
-        public Task<bool> DeleteAsync(IEnumerable<TEntity> entities)
+        public async Task<bool> DeleteAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                return Delete(entities);
+            });
         }
 
         public bool Disable(TEntity entity)
         {
-            throw new NotImplementedException();
+            entity.EnableMark = false;
+            return Update(entity);
         }
 
-        public Task<bool> DisableAsync(TEntity entity)
+        public async Task<bool> DisableAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            entity.EnableMark = false;
+            return await UpdateAsync(entity);
         }
 
         public bool Enable(TEntity entity)
         {
-            throw new NotImplementedException();
+            entity.EnableMark = true;
+            return Update(entity);
         }
 
-        public Task<bool> EnableAsync(TEntity entity)
+        public async Task<bool> EnableAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            entity.EnableMark = true;
+            return await UpdateAsync(entity);
         }
 
         public bool Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Add(entity);
+
+            return SaveChanges();
         }
 
         public bool Insert(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            _dbContext.AddRange(entities);
+
+            return SaveChanges();
         }
 
-        public Task<bool> InsertAsync(TEntity entity)
+        public async Task<bool> InsertAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            await _dbContext.AddAsync(entity);
+
+            return await SaveChangesAsync();
         }
 
-        public Task<bool> InsertAsync(IEnumerable<TEntity> entities)
+        public async Task<bool> InsertAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            await _dbContext.AddRangeAsync(entities);
+
+            return await SaveChangesAsync();
         }
 
         public IQueryable<TEntity> Query()
@@ -87,42 +110,42 @@ namespace Powers.Blog.Repository
 
         public IEnumerable<TEntity> QueryAll()
         {
-            throw new NotImplementedException();
+            return Query().ToList();
         }
 
         public IEnumerable<TEntity> QueryAll(Expression<Func<TEntity, bool>> expression)
         {
-            throw new NotImplementedException();
+            return Query().Where(expression).ToList();
         }
 
-        public Task<IEnumerable<TEntity>> QueryAllAsync()
+        public async Task<IEnumerable<TEntity>> QueryAllAsync()
         {
-            throw new NotImplementedException();
+            return await Query().ToListAsync();
         }
 
-        public Task<IEnumerable<TEntity>> QueryAllAsync(Expression<Func<TEntity, bool>> expression)
+        public async Task<IEnumerable<TEntity>> QueryAllAsync(Expression<Func<TEntity, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await Query().Where(expression).ToListAsync();
         }
 
         public TEntity QueryById(TId id)
         {
-            throw new NotImplementedException();
+            return Query().Where(x => x.Id!.Equals(id)).FirstOrDefault();
         }
 
         public Task<TEntity> QueryByIdAsync(TId id)
         {
-            throw new NotImplementedException();
+            return Query().Where(x => x.Id!.Equals(id)).FirstOrDefaultAsync();
         }
 
         public IEnumerable<TEntity> QueryByIds(IEnumerable<TId> ids)
         {
-            throw new NotImplementedException();
+            return Query().Where(x => ids.Contains(x.Id)).ToList();
         }
 
-        public Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<TId> ids)
+        public async Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<TId> ids)
         {
-            throw new NotImplementedException();
+            return await Query().Where(x => ids.Contains(x.Id)).ToListAsync();
         }
 
         public bool SaveChanges()
@@ -137,42 +160,69 @@ namespace Powers.Blog.Repository
 
         public bool Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Update(entity);
+
+            return SaveChanges();
         }
 
         public bool Update(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            _dbContext.UpdateRange(entities);
+
+            return SaveChanges();
         }
 
-        public Task<bool> UpdateAsync(TEntity entity)
+        public async Task<bool> UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                _dbContext.Update(entity);
+
+                return SaveChangesAsync();
+            });
         }
 
-        public Task<bool> UpdateAsync(IEnumerable<TEntity> entities)
+        public async Task<bool> UpdateAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                _dbContext.UpdateRange(entities);
+
+                return SaveChangesAsync();
+            });
         }
 
         public bool VirtualDelete(TEntity entity)
         {
-            throw new NotImplementedException();
+            entity.DeleteMark = true;
+            return Update(entity);
         }
 
-        public bool VirtualDelete(IEnumerable<TEntity> entity)
+        public bool VirtualDelete(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            foreach (var entity in entities)
+            {
+                entity.DeleteMark = true;
+            }
+
+            return Update(entities);
         }
 
-        public Task<bool> VirtualDeleteAsync(TEntity entity)
+        public async Task<bool> VirtualDeleteAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            entity.DeleteMark = true;
+
+            return await UpdateAsync(entity);
         }
 
-        public Task<bool> VirtualDeleteAsync(IEnumerable<TEntity> entity)
+        public async Task<bool> VirtualDeleteAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            foreach (var entity in entities)
+            {
+                entity.DeleteMark = true;
+            }
+
+            return await UpdateAsync(entities);
         }
     }
 }

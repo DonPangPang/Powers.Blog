@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Powers.Blog.IRepository
 {
-    public interface IRepositoryBase<TEntity, TId> where TEntity : EntityBase<TId>, IEntity
+    public interface IRepositoryBase<TEntity, TId> where TEntity : EntityBase<TId>, IEntity, IEntityEnable, IEntityDelete
     {
         /// <summary>
         /// 根据Id查询
