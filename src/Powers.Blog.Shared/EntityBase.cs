@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Powers.Blog.Shared
 {
@@ -11,6 +12,7 @@ namespace Powers.Blog.Shared
         /// <summary>
         /// Id
         /// </summary>
+        [Required]
         public T Id { get; set; }
 
         public T? CreateUserId { get; set; }
