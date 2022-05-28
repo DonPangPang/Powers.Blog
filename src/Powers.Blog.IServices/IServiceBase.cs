@@ -8,36 +8,41 @@ using System.Threading.Tasks;
 
 namespace Powers.Blog.IServices
 {
-    public interface IServiceBase<TEntity>
-        where TEntity : EntityBase<Guid>, IEntityEnable, IEntityDelete
+    /// <summary>
+    /// 基础服务
+    /// </summary>
+    /// <typeparam name="TEntity"> </typeparam>
+    /// <typeparam name="TId"> </typeparam>
+    public interface IServiceBase<TEntity, TId>
+        where TEntity : EntityBase<TId>, IEntityEnable, IEntityDelete
     {
         /// <summary>
         /// 根据Id查询
         /// </summary>
         /// <param name="id"> </param>
         /// <returns> </returns>
-        TEntity QueryById(Guid id);
+        TEntity QueryById(TId id);
 
         /// <summary>
         /// 根据Id查询
         /// </summary>
         /// <param name="id"> </param>
         /// <returns> </returns>
-        Task<TEntity> QueryByIdAsync(Guid id);
+        Task<TEntity> QueryByIdAsync(TId id);
 
         /// <summary>
         /// 根据Id集合查询
         /// </summary>
         /// <param name="ids"> </param>
         /// <returns> </returns>
-        IEnumerable<TEntity> QueryByIds(IEnumerable<Guid> ids);
+        IEnumerable<TEntity> QueryByIds(IEnumerable<TId> ids);
 
         /// <summary>
         /// 根据Id集合查询
         /// </summary>
         /// <param name="ids"> </param>
         /// <returns> </returns>
-        Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<Guid> ids);
+        Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<TId> ids);
 
         /// <summary>
         /// 查询所有

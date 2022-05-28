@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Powers.Blog.Services
 {
-    public class ServiceBase<TEntity> : IServiceBase<TEntity>
-        where TEntity : EntityBase<Guid>, IEntity, IEntityEnable, IEntityDelete
+    public class ServiceBase<TEntity, TId> : IServiceBase<TEntity, TId>
+        where TEntity : EntityBase<TId>, IEntity, IEntityEnable, IEntityDelete
     {
-        private readonly IRepositoryBase<TEntity, Guid> _repository;
+        private readonly IRepositoryBase<TEntity, TId> _repository;
 
-        public ServiceBase(IRepositoryBase<TEntity, Guid> repository)
+        public ServiceBase(IRepositoryBase<TEntity, TId> repository)
         {
             _repository = repository;
         }
@@ -104,22 +104,22 @@ namespace Powers.Blog.Services
             return await _repository.QueryAllAsync(expression);
         }
 
-        public TEntity QueryById(Guid id)
+        public TEntity QueryById(TId id)
         {
             return _repository.QueryById(id);
         }
 
-        public async Task<TEntity> QueryByIdAsync(Guid id)
+        public async Task<TEntity> QueryByIdAsync(TId id)
         {
             return await _repository.QueryByIdAsync(id);
         }
 
-        public IEnumerable<TEntity> QueryByIds(IEnumerable<Guid> ids)
+        public IEnumerable<TEntity> QueryByIds(IEnumerable<TId> ids)
         {
             return _repository.QueryByIds(ids);
         }
 
-        public async Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<Guid> ids)
+        public async Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<TId> ids)
         {
             return await _repository.QueryByIdsAsync(ids);
         }
