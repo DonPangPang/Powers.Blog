@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace Powers.Blog.IRepository
 {
+    /// <summary>
+    /// 基础仓储
+    /// </summary>
+    /// <typeparam name="TEntity"> </typeparam>
+    /// <typeparam name="TId"> </typeparam>
     public interface IRepositoryBase<TEntity, TId>
         where TEntity : EntityBase<TId>, IEntity, IEntityEnable, IEntityDelete
     {
