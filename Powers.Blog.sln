@@ -11,30 +11,35 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Client", "src\P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Apis", "src\Powers.Blog.Apis\Powers.Blog.Apis.csproj", "{A08B7E57-B588-4CFB-9C15-D7FF48CF4EF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.IRepository", "src\Powers.Blog.IRepository\Powers.Blog.IRepository.csproj", "{8774B1EE-80AC-4510-9574-34B7FE1A9BAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.IRepository", "src\Powers.Blog.IRepository\Powers.Blog.IRepository.csproj", "{8774B1EE-80AC-4510-9574-34B7FE1A9BAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.Repository", "src\Powers.Blog.Repository\Powers.Blog.Repository.csproj", "{5A30DB5E-442C-4C78-94F6-41D76E7F1AF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Repository", "src\Powers.Blog.Repository\Powers.Blog.Repository.csproj", "{5A30DB5E-442C-4C78-94F6-41D76E7F1AF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.IServices", "src\Powers.Blog.IServices\Powers.Blog.IServices.csproj", "{559E6869-5E72-406A-9779-F5179BF4F791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.IServices", "src\Powers.Blog.IServices\Powers.Blog.IServices.csproj", "{559E6869-5E72-406A-9779-F5179BF4F791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.Services", "src\Powers.Blog.Services\Powers.Blog.Services.csproj", "{33E83C95-4106-4704-9AEF-393E7813C068}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Services", "src\Powers.Blog.Services\Powers.Blog.Services.csproj", "{33E83C95-4106-4704-9AEF-393E7813C068}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.Shared", "src\Powers.Blog.Shared\Powers.Blog.Shared.csproj", "{3D23EF9A-3297-4CF2-98CE-8E3B033F76F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Shared", "src\Powers.Blog.Shared\Powers.Blog.Shared.csproj", "{3D23EF9A-3297-4CF2-98CE-8E3B033F76F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.Extensions", "src\Powers.Blog.Extensions\Powers.Blog.Extensions.csproj", "{F07D0134-9A1F-40C4-8175-86966183BF3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Extensions", "src\Powers.Blog.Extensions\Powers.Blog.Extensions.csproj", "{F07D0134-9A1F-40C4-8175-86966183BF3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.Core", "src\Powers.Blog.Core\Powers.Blog.Core.csproj", "{9438DED0-6580-4D7C-868C-91C4DFBAC2BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Core", "src\Powers.Blog.Core\Powers.Blog.Core.csproj", "{9438DED0-6580-4D7C-868C-91C4DFBAC2BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.Middlewares", "src\Powers.Blog.Middlewares\Powers.Blog.Middlewares.csproj", "{A4E74945-D52D-4BF3-90DA-B97708C086AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Middlewares", "src\Powers.Blog.Middlewares\Powers.Blog.Middlewares.csproj", "{A4E74945-D52D-4BF3-90DA-B97708C086AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.MemoryMQ", "src\Powers.Blog.MemoryMQ\Powers.Blog.MemoryMQ.csproj", "{4F322836-1FD6-49F3-A0C6-C727063B12D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.MemoryMQ", "src\Powers.Blog.MemoryMQ\Powers.Blog.MemoryMQ.csproj", "{4F322836-1FD6-49F3-A0C6-C727063B12D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E3A0F512-017D-4985-A4B1-931F7935DE79}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.Blog.Common", "src\Powers.Blog.Common\Powers.Blog.Common.csproj", "{7B5E7C28-8987-4335-AEAF-227F964752D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.Blog.Common", "src\Powers.Blog.Common\Powers.Blog.Common.csproj", "{7B5E7C28-8987-4335-AEAF-227F964752D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{66D10825-164A-496D-8A68-5AB33649BF3F}"
+	ProjectSection(SolutionItems) = preProject
+		README.MD = README.MD
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

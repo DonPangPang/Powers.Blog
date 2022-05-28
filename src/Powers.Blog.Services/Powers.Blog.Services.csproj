@@ -5,4 +5,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Powers.Blog.IRepository\Powers.Blog.IRepository.csproj" />
+    <ProjectReference Include="..\Powers.Blog.IServices\Powers.Blog.IServices.csproj" />
+    <ProjectReference Include="..\Powers.Blog.Shared\Powers.Blog.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
