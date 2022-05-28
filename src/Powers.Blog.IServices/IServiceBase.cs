@@ -1,43 +1,43 @@
 ﻿using Powers.Blog.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace Powers.Blog.IRepository
+namespace Powers.Blog.IServices
 {
-    public interface IRepositoryBase<TEntity, TId>
-        where TEntity : EntityBase<TId>, IEntity, IEntityEnable, IEntityDelete
+    public interface IServiceBase<TEntity>
+        where TEntity : EntityBase<Guid>, IEntityEnable, IEntityDelete
     {
         /// <summary>
         /// 根据Id查询
         /// </summary>
         /// <param name="id"> </param>
         /// <returns> </returns>
-        TEntity QueryById(TId id);
+        TEntity QueryById(Guid id);
 
         /// <summary>
         /// 根据Id查询
         /// </summary>
         /// <param name="id"> </param>
         /// <returns> </returns>
-        Task<TEntity> QueryByIdAsync(TId id);
+        Task<TEntity> QueryByIdAsync(Guid id);
 
         /// <summary>
         /// 根据Id集合查询
         /// </summary>
         /// <param name="ids"> </param>
         /// <returns> </returns>
-        IEnumerable<TEntity> QueryByIds(IEnumerable<TId> ids);
+        IEnumerable<TEntity> QueryByIds(IEnumerable<Guid> ids);
 
         /// <summary>
         /// 根据Id集合查询
         /// </summary>
         /// <param name="ids"> </param>
         /// <returns> </returns>
-        Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<TId> ids);
+        Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<Guid> ids);
 
         /// <summary>
         /// 查询所有
