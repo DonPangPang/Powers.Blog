@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Powers.Blog.Shared;
 using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Powers.Blog.Shared.EfCore
+namespace Powers.Blog.EfCore
 {
     public class PowersBlogDbContext : DbContext
     {
@@ -16,7 +17,7 @@ namespace Powers.Blog.Shared.EfCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var types = typeof(IEntity).Assembly.GetTypes().AsEnumerable()
-                .Where(t => !t.IsAbstract && !t.IsInterface && t.IsSubclassOf(typeof(IEntity)));
+                .Where(x => !x.IsInterface && !x.IsAbstract && x.IsAssignableTo(typeof(IEntity)));
 
             foreach (var type in types)
             {

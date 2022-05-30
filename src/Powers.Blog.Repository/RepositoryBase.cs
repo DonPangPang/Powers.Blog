@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Powers.Blog.EfCore;
 using Powers.Blog.IRepository;
 using Powers.Blog.Shared;
-using Powers.Blog.Shared.EfCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;

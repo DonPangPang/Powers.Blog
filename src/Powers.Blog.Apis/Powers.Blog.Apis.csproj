@@ -1,29 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-	  <LangVersion>preview</LangVersion>
-	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
-	  <DocumentationFile>bin\Debug\net6.0\Powers.Blog.Apis.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Pang.AutoMapperMiddleware" Version="1.0.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Powers.Blog.Common\Powers.Blog.Common.csproj" />
-    <ProjectReference Include="..\Powers.Blog.Extensions\Powers.Blog.Extensions.csproj" />
-    <ProjectReference Include="..\Powers.Blog.IServices\Powers.Blog.IServices.csproj" />
-    <ProjectReference Include="..\Powers.Blog.MemoryMQ\Powers.Blog.MemoryMQ.csproj" />
-    <ProjectReference Include="..\Powers.Blog.Middlewares\Powers.Blog.Middlewares.csproj" />
-    <ProjectReference Include="..\Powers.Blog.Repository\Powers.Blog.Repository.csproj" />
-    <ProjectReference Include="..\Powers.Blog.Services\Powers.Blog.Services.csproj" />
-    <ProjectReference Include="..\Powers.Blog.Shared\Powers.Blog.Shared.csproj" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>preview</LangVersion>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>bin\Debug\net6.0\Powers.Blog.Apis.xml</DocumentationFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+		<PackageReference Include="Pang.AutoMapperMiddleware" Version="1.0.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Powers.Blog.Common\Powers.Blog.Common.csproj" />
+		<ProjectReference Include="..\Powers.Blog.Core\Powers.Blog.Core.csproj" />
+		<ProjectReference Include="..\Powers.Blog.EfCore\Powers.Blog.EfCore.csproj" />
+		<ProjectReference Include="..\Powers.Blog.IServices\Powers.Blog.IServices.csproj" />
+		<ProjectReference Include="..\Powers.Blog.MemoryMQ\Powers.Blog.MemoryMQ.csproj" />
+		<ProjectReference Include="..\Powers.Blog.Middlewares\Powers.Blog.Middlewares.csproj" />
+		<ProjectReference Include="..\Powers.Blog.Repository\Powers.Blog.Repository.csproj" />
+		<ProjectReference Include="..\Powers.Blog.Services\Powers.Blog.Services.csproj" />
+		<ProjectReference Include="..\Powers.Blog.Shared\Powers.Blog.Shared.csproj" />
+	</ItemGroup>
 </Project>

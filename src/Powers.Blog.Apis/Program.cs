@@ -2,9 +2,13 @@
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Pang.AutoMapperMiddleware;
+using Powers.Blog.Apis.Extensions.EfCore;
 using Powers.Blog.Core.AutoFac;
-using Powers.Blog.Extensions.EfCore;
+using Powers.Blog.Shared;
 using System.Reflection;
+using System.Text;
+
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 var builder = WebApplication.CreateBuilder(args);
 

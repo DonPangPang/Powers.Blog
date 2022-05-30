@@ -1,5 +1,5 @@
-﻿using Powers.Blog.Shared;
-using Powers.Blog.Shared.EfCore;
+﻿using Powers.Blog.EfCore;
+using Powers.Blog.Shared;
 using System;
 
 namespace Powers.Blog.Repository
