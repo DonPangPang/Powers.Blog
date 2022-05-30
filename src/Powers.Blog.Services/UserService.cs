@@ -11,7 +11,7 @@ namespace Powers.Blog.Services
 {
     public class UserService : ServiceGen<User>, IUserService
     {
-        public UserService(IRepositoryGen<User> repository) : base(repository)
+        public UserService(IRepositoryBase<User, Guid> repository) : base(repository)
         {
         }
     }

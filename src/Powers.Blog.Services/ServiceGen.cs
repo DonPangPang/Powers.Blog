@@ -8,9 +8,9 @@ namespace Powers.Blog.Services
     public class ServiceGen<TEntity> : ServiceBase<TEntity, Guid>, IServiceGen<TEntity>
         where TEntity : EntityBase<Guid>, IEntity, IEntityEnable, IEntityDelete
     {
-        private readonly IRepositoryGen<TEntity> _repository;
+        private readonly IRepositoryBase<TEntity, Guid> _repository;
 
-        public ServiceGen(IRepositoryGen<TEntity> repository) : base(repository)
+        public ServiceGen(IRepositoryBase<TEntity, Guid> repository) : base(repository)
         {
             _repository = repository;
         }

@@ -6,6 +6,10 @@ using Pang.AutoMapperMiddleware;
 using Powers.Blog.Apis.Controllers;
 using Powers.Blog.Apis.Extensions.EfCore;
 using Powers.Blog.Core.AutoFac;
+using Powers.Blog.IRepository;
+using Powers.Blog.IServices;
+using Powers.Blog.Repository;
+using Powers.Blog.Services;
 using Powers.Blog.Shared;
 using System.Reflection;
 using System.Text;
@@ -54,17 +58,21 @@ builder.Services.AddSwaggerGen(c =>
     c.IncludeXmlComments(xmlPath, true);
 });
 
-// AutoFac
-builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
-    .ConfigureContainer<ContainerBuilder>(builder =>
-    {
-        builder.RegisterModule(new AutofacModuleRegister());
+builder.Services.AddScoped(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
+builder.Services.AddScoped(typeof(IServiceBase<,>), typeof(ServiceBase<,>));
+builder.Services.AddScoped(typeof(IRepositoryGen<>), typeof(RepositoryGen<>));
+builder.Services.AddScoped(typeof(IServiceGen<>), typeof(RepositoryGen<>));
+builder.Services.AddScoped<IUserService, UserService>();
 
-        var controllerBaseType = typeof(ApiController);
-        builder.RegisterAssemblyTypes(typeof(Program).Assembly)
-            .Where(t => controllerBaseType.IsAssignableFrom(t) && t != controllerBaseType)
-            .PropertiesAutowired();
-    });
+// AutoFac
+//builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+//    .ConfigureContainer<ContainerBuilder>(builder =>
+//    {
+//        builder.RegisterModule(new AutofacModuleRegister());
+
+// var controllerBaseType = typeof(ApiController);
+// builder.RegisterAssemblyTypes(typeof(Program).Assembly).Where(t =>
+// controllerBaseType.IsAssignableFrom(t) && t != controllerBaseType).PropertiesAutowired(); });
 
 // EfCore
 builder.Services.AddEfCore();

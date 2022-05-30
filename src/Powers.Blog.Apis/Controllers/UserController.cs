@@ -9,12 +9,12 @@ namespace Powers.Blog.Apis.Controllers
     /// </summary>
     public class UserController : ApiController
     {
-        private readonly IServiceBase<User, Guid> _userService;
+        private readonly IUserService _userService;
 
         /// <summary>
         /// </summary>
         /// <param name="_userService"> </param>
-        public UserController(IServiceBase<User, Guid> _userService)
+        public UserController(IUserService _userService)
         {
             this._userService = _userService;
         }
