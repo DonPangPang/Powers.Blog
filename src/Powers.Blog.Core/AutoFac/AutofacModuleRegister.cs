@@ -20,14 +20,16 @@ namespace Powers.Blog.Core.AutoFac
             }
 
             var assemblysServices = Assembly.LoadFrom(serviceDllFile);
-            builder.RegisterAssemblyTypes(assemblysServices).AsImplementedInterfaces()
-                .InstancePerDependency().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies);
+            builder.RegisterAssemblyTypes(assemblysServices)
+                .AsImplementedInterfaces()
+                .InstancePerDependency()
+                .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies);
 
             var assemblysRepository = Assembly.LoadFrom(repositoryDllFile);
-            builder.RegisterAssemblyTypes(assemblysRepository).AsImplementedInterfaces()
-                .InstancePerDependency().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies);
-
-            base.Load(builder);
+            builder.RegisterAssemblyTypes(assemblysRepository)
+                .AsImplementedInterfaces()
+                .InstancePerDependency()
+                .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies);
         }
     }
 }
