@@ -7,7 +7,7 @@ namespace Powers.Blog.Shared
     {
     }
 
-    public abstract class EntityBase<T>
+    public abstract class EntityBase<T> : IEntity
     {
         /// <summary>
         /// Id

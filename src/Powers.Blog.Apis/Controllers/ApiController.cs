@@ -3,10 +3,19 @@ using Powers.Blog.Common;
 
 namespace Powers.Blog.Apis.Controllers
 {
+    /// <summary>
+    /// 基础Api
+    /// </summary>
     [ApiController]
     [Route("[Controller]/[Action]")]
     public class ApiController : ControllerBase
     {
+        /// <summary>
+        /// 成功
+        /// </summary>
+        /// <param name="message"> </param>
+        /// <param name="data">    </param>
+        /// <returns> </returns>
         [NonAction]
         public ActionResult Success(string message, object? data)
         {
@@ -18,6 +27,11 @@ namespace Powers.Blog.Apis.Controllers
             });
         }
 
+        /// <summary>
+        /// 成功
+        /// </summary>
+        /// <param name="data"> </param>
+        /// <returns> </returns>
         [NonAction]
         public ActionResult Success(object? data)
         {
@@ -28,6 +42,12 @@ namespace Powers.Blog.Apis.Controllers
             });
         }
 
+        /// <summary>
+        /// 失败
+        /// </summary>
+        /// <param name="message"> </param>
+        /// <param name="data">    </param>
+        /// <returns> </returns>
         [NonAction]
         public ActionResult Fail(string message, object? data)
         {
@@ -39,6 +59,11 @@ namespace Powers.Blog.Apis.Controllers
             });
         }
 
+        /// <summary>
+        /// 失败
+        /// </summary>
+        /// <param name="data"> </param>
+        /// <returns> </returns>
         [NonAction]
         public ActionResult Fail(object? data)
         {

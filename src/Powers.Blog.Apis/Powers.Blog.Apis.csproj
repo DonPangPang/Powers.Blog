@@ -4,14 +4,26 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <LangVersion>preview</LangVersion>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <DocumentationFile>bin\Debug\net6.0\Powers.Blog.Apis.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Pang.AutoMapperMiddleware" Version="1.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Powers.Blog.Common\Powers.Blog.Common.csproj" />
+    <ProjectReference Include="..\Powers.Blog.Extensions\Powers.Blog.Extensions.csproj" />
+    <ProjectReference Include="..\Powers.Blog.IServices\Powers.Blog.IServices.csproj" />
+    <ProjectReference Include="..\Powers.Blog.MemoryMQ\Powers.Blog.MemoryMQ.csproj" />
+    <ProjectReference Include="..\Powers.Blog.Middlewares\Powers.Blog.Middlewares.csproj" />
+    <ProjectReference Include="..\Powers.Blog.Repository\Powers.Blog.Repository.csproj" />
+    <ProjectReference Include="..\Powers.Blog.Services\Powers.Blog.Services.csproj" />
+    <ProjectReference Include="..\Powers.Blog.Shared\Powers.Blog.Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
-using Powers.Blog.Client;
-using Powers.Blog.Client.Data;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Powers.Blog.Client;
+using Powers.Blog.Client.Data;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Powers.Blog.Extensions.Utility;
+using Powers.Blog.Core.Utility;
 using Powers.Blog.IServices;
 using Powers.Blog.Shared.Entity;
 using System;
@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 
 namespace Powers.Blog.Common.Auth
 {
@@ -48,7 +47,7 @@ namespace Powers.Blog.Common.Auth
         {
             var jwtHandler = new JwtSecurityTokenHandler();
 
-            if (!GetToken().IsNullOrEmpty())
+            if (GetToken().IsNullOrEmpty())
             {
                 JwtSecurityToken jwtToken = jwtHandler.ReadJwtToken(GetToken());
 

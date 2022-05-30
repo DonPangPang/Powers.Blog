@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
 
 namespace Powers.Blog.Shared.EfCore
 {
@@ -17,6 +15,17 @@ namespace Powers.Blog.Shared.EfCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var types = typeof(IEntity).Assembly.GetTypes().AsEnumerable()
+                .Where(t => !t.IsAbstract && !t.IsInterface && t.IsSubclassOf(typeof(IEntity)));
+
+            foreach (var type in types)
+            {
+                if (modelBuilder.Model.FindEntityType(type) is null)
+                {
+                    modelBuilder.Model.AddEntityType(type);
+                }
+            }
+
             base.OnModelCreating(modelBuilder);
         }
 

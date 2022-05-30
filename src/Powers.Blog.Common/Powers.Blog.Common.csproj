@@ -13,4 +13,10 @@
     <Folder Include="Hub\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Powers.Blog.Extensions\Powers.Blog.Extensions.csproj" />
+    <ProjectReference Include="..\Powers.Blog.IServices\Powers.Blog.IServices.csproj" />
+    <ProjectReference Include="..\Powers.Blog.Shared\Powers.Blog.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

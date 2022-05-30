@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Powers.Blog.MemoryMQ.Abstractions
+﻿namespace Powers.Blog.MemoryMQ.Abstractions
 {
     public interface IPubSub
     {

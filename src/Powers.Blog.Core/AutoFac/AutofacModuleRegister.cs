@@ -1,9 +1,7 @@
 ﻿using Autofac;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
 
 namespace Powers.Blog.Core.AutoFac
 {

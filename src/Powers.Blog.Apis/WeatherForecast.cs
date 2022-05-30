@@ -2,6 +2,9 @@ namespace Powers.Blog.Apis;
 
 public class WeatherForecast
 {
+    /// <summary>
+    /// Ê±¼ä
+    /// </summary>
     public DateTime Date { get; set; }
 
     public int TemperatureC { get; set; }

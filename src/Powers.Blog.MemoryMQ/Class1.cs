@@ -1,9 +1,6 @@
-﻿using System;
-
-namespace Powers.Blog.MemoryMQ
+﻿namespace Powers.Blog.MemoryMQ
 {
     public class Class1
     {
-
     }
 }
