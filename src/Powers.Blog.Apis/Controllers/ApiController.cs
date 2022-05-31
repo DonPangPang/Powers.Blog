@@ -224,6 +224,32 @@ namespace Powers.Blog.Apis.Controllers
         }
 
         /// <summary>
+        /// 开启
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<ActionResult> EnableAsync(TId id)
+        {
+            var entity = await _serviceGen.QueryByIdAsync<TEntity>(id);
+            var data = await _serviceGen.EnableAsync(entity);
+            return data ? Success() : Fail();
+        }
+
+        /// <summary>
+        /// 关闭
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<ActionResult> DisableAsync(TId id)
+        {
+            var entity = await _serviceGen.QueryByIdAsync<TEntity>(id);
+            var data = await _serviceGen.DisableAsync(entity);
+            return data ? Success() : Fail();
+        }
+
+        /// <summary>
         /// 成功
         /// </summary>
         /// <param name="message"> </param>
