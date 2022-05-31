@@ -61,7 +61,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddScoped(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
 builder.Services.AddScoped(typeof(IServiceBase<,>), typeof(ServiceBase<,>));
 builder.Services.AddScoped(typeof(IRepositoryGen<>), typeof(RepositoryGen<>));
-builder.Services.AddScoped(typeof(IServiceGen<>), typeof(RepositoryGen<>));
+builder.Services.AddScoped(typeof(IServiceGen<>), typeof(ServiceGen<>));
 builder.Services.AddScoped<IUserService, UserService>();
 
 // AutoFac

@@ -1,20 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Powers.Blog.IServices;
 using Powers.Blog.Shared.Entity;
 
 namespace Powers.Blog.Apis.Controllers
 {
     /// <summary>
-    /// 用户接口
+    /// 标签接口
     /// </summary>
-    public class UserController : ApiController<Guid, User>
+    public class TagController : ApiController<Guid, Tag>
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="serviceGen"></param>
         /// <returns></returns>
-        public UserController(IServiceGen<Guid> serviceGen) : base(serviceGen)
+        public TagController(IServiceGen<Guid> serviceGen) : base(serviceGen)
         {
         }
     }

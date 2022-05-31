@@ -130,7 +130,7 @@ namespace Powers.Blog.Repository
 
         public TEntity QueryById(TId id)
         {
-            return Query().Where(x => x.Id!.Equals(id)).FirstOrDefault();
+            return Query().Where(x => x.Id!.Equals(id))!.FirstOrDefault();
         }
 
         public Task<TEntity> QueryByIdAsync(TId id)
