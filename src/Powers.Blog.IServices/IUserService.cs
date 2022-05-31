@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Powers.Blog.IServices
 {
-    public interface IUserService : IServiceGen<User>
+    public interface IUserService : IServiceGen<Guid>
     {
     }
 }

@@ -26,7 +26,7 @@ namespace Powers.Blog.Apis.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            var data = await _userService.QueryAllAsync();
+            var data = await _userService.QueryAllAsync<User>();
 
             return Success(data);
         }

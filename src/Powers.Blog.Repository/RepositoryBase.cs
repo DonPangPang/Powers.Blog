@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Powers.Blog.Common;
 using Powers.Blog.EfCore;
 using Powers.Blog.IRepository;
 using Powers.Blog.Shared;
@@ -145,6 +146,16 @@ namespace Powers.Blog.Repository
         public async Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<TId> ids)
         {
             return await Query().Where(x => ids.Contains(x.Id)).ToListAsync();
+        }
+
+        public PagedList<TEntity> QueryPaged(IQueryable<TEntity> source, IPaging paging)
+        {
+            return PagedList<TEntity>.Create(source, paging.Page, paging.PageSize);
+        }
+
+        public async Task<PagedList<TEntity>> QueryPagedAsync(IQueryable<TEntity> source, IPaging paging)
+        {
+            return await PagedList<TEntity>.CreateAsync(source, paging.Page, paging.PageSize);
         }
 
         public bool SaveChanges()

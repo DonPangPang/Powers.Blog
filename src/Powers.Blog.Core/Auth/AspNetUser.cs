@@ -13,15 +13,15 @@ namespace Powers.Blog.Common.Auth
     public class AspNetUser : IHttpContextUser<Guid>
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IServiceGen<User> _serviceGen;
+        private readonly IServiceGen<Guid> _serviceGen;
 
-        public AspNetUser(IHttpContextAccessor httpContextAccessor, IServiceGen<User> serviceGen)
+        public AspNetUser(IHttpContextAccessor httpContextAccessor, IServiceGen<Guid> serviceGen)
         {
             _httpContextAccessor = httpContextAccessor;
             _serviceGen = serviceGen;
         }
 
-        public User User => _serviceGen.QueryById(Id);
+        public User User => _serviceGen.QueryById<User>(Id);
 
         public Guid Id => GetClaimValueByType("Id").FirstOrDefault().ConvertTo<Guid>();
 

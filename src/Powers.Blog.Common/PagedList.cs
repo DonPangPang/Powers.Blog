@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Powers.Blog.Common
 {
-    public class PagedList<T> : List<T>
+    public class PagedList<T> : List<T> where T : class
     {
         public int CurrentPage { get; private set; }
         public int TotalPages { get; private set; }
@@ -29,6 +29,13 @@ namespace Powers.Blog.Common
         {
             var count = await sourse.CountAsync();
             var items = await sourse.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+            return new PagedList<T>(items, count, pageNumber, pageSize);
+        }
+
+        public static PagedList<T> Create(IQueryable<T> sourse, int pageNumber, int pageSize)
+        {
+            var count = sourse.Count();
+            var items = sourse.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
             return new PagedList<T>(items, count, pageNumber, pageSize);
         }
     }

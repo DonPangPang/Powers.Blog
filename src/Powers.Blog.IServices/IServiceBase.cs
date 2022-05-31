@@ -1,4 +1,5 @@
-﻿using Powers.Blog.Shared;
+﻿using Powers.Blog.Common;
+using Powers.Blog.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,20 @@ namespace Powers.Blog.IServices
     public interface IServiceBase<TEntity, TId>
         where TEntity : EntityBase<TId>, IEntityEnable, IEntityDelete
     {
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="parameters"> </param>
+        /// <returns> </returns>
+        PagedList<TEntity> QueryPaged(IDtoParameters parameters);
+
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="parameters"> </param>
+        /// <returns> </returns>
+        Task<PagedList<TEntity>> QueryPagedAsync(IDtoParameters parameters);
+
         /// <summary>
         /// 根据Id查询
         /// </summary>

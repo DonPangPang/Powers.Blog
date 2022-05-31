@@ -3,9 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net6</TargetFramework>
     <Nullable>enable</Nullable>
+	  <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Powers.Blog.Common\Powers.Blog.Common.csproj" />
     <ProjectReference Include="..\Powers.Blog.EfCore\Powers.Blog.EfCore.csproj" />
     <ProjectReference Include="..\Powers.Blog.IRepository\Powers.Blog.IRepository.csproj" />
   </ItemGroup>

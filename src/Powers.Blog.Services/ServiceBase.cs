@@ -1,4 +1,6 @@
-﻿using Powers.Blog.IRepository;
+﻿using Powers.Blog.Common;
+using Powers.Blog.Common.Extensions;
+using Powers.Blog.IRepository;
 using Powers.Blog.IServices;
 using Powers.Blog.Shared;
 using System;
@@ -122,6 +124,30 @@ namespace Powers.Blog.Services
         public async Task<IEnumerable<TEntity>> QueryByIdsAsync(IEnumerable<TId> ids)
         {
             return await _repository.QueryByIdsAsync(ids);
+        }
+
+        public PagedList<TEntity> QueryPaged(IDtoParameters parameters!!)
+        {
+            var query = Query();
+            if (parameters is ISorting sorting)
+                query.ApplySort(sorting.OrderBy ?? "");
+
+            if (parameters is IPaging paging)
+                return _repository.QueryPaged(query, paging);
+            else
+                throw new Exception("无分页参数");
+        }
+
+        public async Task<PagedList<TEntity>> QueryPagedAsync(IDtoParameters parameters!!)
+        {
+            var query = Query();
+            if (parameters is ISorting sorting)
+                query.ApplySort(sorting.OrderBy ?? "");
+
+            if (parameters is IPaging paging)
+                return await _repository.QueryPagedAsync(query, paging);
+            else
+                throw new Exception("无分页参数");
         }
 
         public bool SaveChanges()

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Powers.Blog.Services
 {
-    public class UserService : ServiceGen<User>, IUserService
+    public class UserService : ServiceGen<Guid>, IUserService
     {
-        public UserService(IRepositoryBase<User, Guid> repository) : base(repository)
+        public UserService(IRepositoryGen<Guid> repository) : base(repository)
         {
         }
     }
