@@ -29,6 +29,11 @@ namespace Powers.Blog.Shared.Entity
         public ICollection<Category>? Categories { get; set; }
 
         /// <summary>
+        /// 点赞记录
+        /// </summary>
+        public ICollection<StarRecord> StarRecords { get; set; }
+
+        /// <summary>
         /// 正文
         /// </summary>
         public string Content { get; set; } = null!;

@@ -11,7 +11,7 @@ namespace Powers.Blog.IServices
     /// <summary>
     /// 通用服务
     /// </summary>
-    /// <typeparam name="TEntity"> </typeparam>
+    /// <typeparam name="TId"> </typeparam>
     public interface IServiceGen<TId>
     //where TEntity : EntityBase<TId>, IEntity, IEntityEnable, IEntityDelete
     {

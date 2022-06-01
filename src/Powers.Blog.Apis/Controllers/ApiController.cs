@@ -120,9 +120,8 @@ namespace Powers.Blog.Apis.Controllers
         private readonly IServiceGen<TId> _serviceGen;
 
         /// <summary>
-        /// 
         /// </summary>
-        /// <param name="serviceGen"></param>
+        /// <param name="serviceGen"> </param>
         public ApiController(IServiceGen<TId> serviceGen)
         {
             _serviceGen = serviceGen;
@@ -131,8 +130,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 查询分页数据
         /// </summary>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
+        /// <param name="parameters"> </param>
+        /// <returns> </returns>
         [HttpGet]
         public async Task<ActionResult> GetPagedAsync([FromQuery] DtoParametersBase parameters)
         {
@@ -150,7 +149,7 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 获取全部数据
         /// </summary>
-        /// <returns></returns>
+        /// <returns> </returns>
         [HttpGet]
         public async Task<ActionResult> GetAllAsync()
         {
@@ -161,8 +160,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 通过Id获取
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id"> </param>
+        /// <returns> </returns>
         [HttpGet]
         public async Task<ActionResult> GetByIdAsync(TId id)
         {
@@ -173,8 +172,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 根据Id集合获取数据
         /// </summary>
-        /// <param name="ids"></param>
-        /// <returns></returns>
+        /// <param name="ids"> </param>
+        /// <returns> </returns>
         [HttpGet]
         public async Task<ActionResult> GetByIdsAsync(IEnumerable<TId> ids)
         {
@@ -185,8 +184,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 新增实体
         /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
+        /// <param name="entity"> </param>
+        /// <returns> </returns>
         [HttpPost]
         public async Task<ActionResult> AddAsync([FromBody] TEntity entity)
         {
@@ -197,8 +196,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 更新实体
         /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
+        /// <param name="entity"> </param>
+        /// <returns> </returns>
         [HttpPut]
         public async Task<ActionResult> UpdateAsync([FromBody] TEntity entity)
         {
@@ -213,8 +212,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 删除实体
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id"> </param>
+        /// <returns> </returns>
         [HttpDelete]
         public async Task<ActionResult> DeleteAsync(TId id)
         {
@@ -226,8 +225,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 开启
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id"> </param>
+        /// <returns> </returns>
         [HttpGet]
         public async Task<ActionResult> EnableAsync(TId id)
         {
@@ -239,8 +238,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 关闭
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id"> </param>
+        /// <returns> </returns>
         [HttpGet]
         public async Task<ActionResult> DisableAsync(TId id)
         {
@@ -343,5 +342,4 @@ namespace Powers.Blog.Apis.Controllers
             });
         }
     }
-
 }

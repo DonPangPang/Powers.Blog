@@ -17,10 +17,9 @@ namespace Powers.Blog.Apis.Controllers
         private readonly IServiceGen<Guid> _serviceGen;
 
         /// <summary>
-        /// 
         /// </summary>
-        /// <param name="serviceGen"></param>
-        /// <returns></returns>
+        /// <param name="serviceGen"> </param>
+        /// <returns> </returns>
         public TagController(IServiceGen<Guid> serviceGen) : base(serviceGen)
         {
             _serviceGen = serviceGen;
@@ -29,8 +28,8 @@ namespace Powers.Blog.Apis.Controllers
         /// <summary>
         /// 根据标签获取博客
         /// </summary>
-        /// <param name="tagId"></param>
-        /// <returns></returns>
+        /// <param name="tagId"> </param>
+        /// <returns> </returns>
         [HttpGet]
         public async Task<ActionResult> GetBlogsFromTag(Guid tagId)
         {
