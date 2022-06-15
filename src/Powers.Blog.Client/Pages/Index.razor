@@ -1,49 +1,46 @@
 ﻿@page "/"
 
-
+<div class="index-panel content-tran" >
+    
+</div>
 
 <MContainer class="index-panel" Fluid >
     
 </MContainer>
 
-<MContainer class="content" Fluid>
+<MContainer class="content">
     <MRow>
         <MCol Cols="12"
               Sm="3">
-            <MContainer Style="background-color:gray;">
-                1
-            </MContainer>
+            <div class="index-panel content-tran">
+
+            </div>
         </MCol>
         <MCol Cols="12"
               Sm="6">
-            <MContainer Style="background-color:gray;">
-                2
-            </MContainer>
+            <div class="index-panel content-tran">
+
+            </div>
         </MCol>
         <MCol Cols="12"
               Sm="3">
-            <MContainer Style="background-color:gray;">
-                <MImage Style="width:120px;height: 120px;background-color:red;">
+            <div class="index-panel content-tran">
+                <MImage Style="width:200px;height:200px;background-color:lightsalmon;" Class="mx-auto">
 
                 </MImage>
-            </MContainer>
+            </div>
         </MCol>
     </MRow>
 </MContainer>
 
 <style>
-    .index-panel {
-        background-color: lightgray;
-        height: 200px;
-    }
-
     .content {
-        margin-top: 10px;
-        height: 300px;
-        background-color: lightgray;
-    }
+    margin-top: 10px;
+    width: 90%;
+    height: 300px;
+    /*background-color: lightgray;*/
+}
 </style>
-
 
 @code{
 
