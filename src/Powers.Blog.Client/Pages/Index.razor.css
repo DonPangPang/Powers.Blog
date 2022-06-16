@@ -1,13 +1,13 @@
 ﻿html,
 *,
-body{
+body {
     margin: 0 auto;
     padding: 0px;
 }
 
 .title-panel {
     background-color: lightcoral;
-    height: 200px;
+    height: 300px;
 }
 
 .index-panel {
@@ -15,8 +15,7 @@ body{
 }
 
 .content-item {
-    margin-bottom: 10px;
-    background-color:darkturquoise;
+    margin-bottom: 15px;
+    /*background-color:darkturquoise;*/
     animation-fill-mode: backwards !important;
 }
-

@@ -11,6 +11,12 @@
 	  <LangVersion>preview</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
+	  <None Remove="Components\TagComponent.razor.css" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="Components\TagComponent.razor.css" />
+	</ItemGroup>
+	<ItemGroup>
 	  <None Include="..\..\.editorconfig" Link=".editorconfig" />
 	</ItemGroup>
 	<ItemGroup>

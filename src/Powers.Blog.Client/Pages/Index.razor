@@ -1,29 +1,34 @@
 ﻿@page "/"
+@using Microsoft.Extensions.ObjectPool
 
 <MApp>
     <MContainer Fluid>
-        <div class="title-panel top-tran mx-auto transition-swing secondary rounded-xl" >
-    
-        </div>
+        <div class="title-panel top-tran mx-auto transition-swing secondary rounded-xl elevation-20">        </div>
     </MContainer>
     <MMain>
         <MContainer Class="fill-height pa-0" Style="width:90%;" Fluid>
             <MRow Class="fill-height">
                 <MCol Cols="12"
-                        Sm="3">
-                    <div class="fill-height index-panel left-tran">
+                      Sm="3">
+                    <div class="fill-height left-tran rounded-xl elevation-20">
+                        <div style="height: 20px;"></div>
+                        @for (int i = 0; i < 30; i++)
+                        {
+                            <TagComponent Style=@($"animation-delay: {(@i * 100)}ms;") Name=@($"Blazor{@i}") class="left-tran" Color="@colors[@i % 10]">
 
+                            </TagComponent>
+                        }
                     </div>
                 </MCol>
                 <MCol Cols="12"
-                        Sm="6">
-                    <div class="fill-height bottom-tran index-panel">
-                        @for(int i = 0; i < 10; i++)
+                      Sm="6">
+                    <div class="fill-height bottom-tran rounded-xl">
+                        @for (int i = 0; i < 10; i++)
                         {
-                            <div style="animation-delay: @(i*100)ms;" class="content-item bottom-tran">
+                            <div style="animation-delay: @(i*100)ms;" class="content-item bottom-tran elevation-24 rounded-xl">
                                 <MSheet Color="@($"grey {(IsDark?"darken-2":"lighten-4")}")" Class="rounded-xl">
                                     <MSkeletonLoader Class="rounded-xl"
-                                                        Type="card">
+                                                 Type="card">
                                     </MSkeletonLoader>
                                 </MSheet>
                             </div>
@@ -31,9 +36,9 @@
                     </div>
                 </MCol>
                 <MCol Cols="12"
-                        Sm="3">
-                    <div class="fill-height index-panel right-tran">
-                        <MImage Style="width:200px;height:200px;background-color:lightsalmon;" Class="mx-auto">
+                      Sm="3">
+                    <div class="fill-height index-panel right-tran rounded-xl elevation-20" style="padding-top: 20px;">
+                        <MImage Style="width:200px;height:200px;background-color:lightsalmon;" Class="mx-auto rounded-xl right-tran elevation-20">
 
                         </MImage>
                     </div>
@@ -45,13 +50,19 @@
 
 <style>
     .content {
-    /*margin-top: 10px;*/
-    height: 300px;
-    /*background-color: lightgray;*/
-}
+        /*margin-top: 10px;*/
+        height: 300px;
+        /*background-color: lightgray;*/
+    }
 </style>
 
-@code{
+@code {
     [CascadingParameter(Name = "IsDark")]
     public bool IsDark { get; set; }
+
+    public string[] colors = new[]
+    {
+        "#9575CD","#7986CB","#E57373","#AB47BC","#039BE5","#00897B","#0097A7","#388E3C","#6D4C41","#546E7A"
+    };
+
 }
