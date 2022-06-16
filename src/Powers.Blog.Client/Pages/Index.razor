@@ -1,47 +1,57 @@
 ﻿@page "/"
 
-<div class="index-panel content-tran" >
+<MApp>
+    <MContainer Fluid>
+        <div class="title-panel top-tran mx-auto transition-swing secondary rounded-xl" >
     
-</div>
+        </div>
+    </MContainer>
+    <MMain>
+        <MContainer Class="fill-height pa-0" Style="width:90%;" Fluid>
+            <MRow Class="fill-height">
+                <MCol Cols="12"
+                        Sm="3">
+                    <div class="fill-height index-panel left-tran">
 
-<MContainer class="index-panel" Fluid >
-    
-</MContainer>
+                    </div>
+                </MCol>
+                <MCol Cols="12"
+                        Sm="6">
+                    <div class="fill-height bottom-tran index-panel">
+                        @for(int i = 0; i < 10; i++)
+                        {
+                            <div style="animation-delay: @(i*100)ms;" class="content-item bottom-tran">
+                                <MSheet Color="@($"grey {(IsDark?"darken-2":"lighten-4")}")" Class="rounded-xl">
+                                    <MSkeletonLoader Class="rounded-xl"
+                                                        Type="card">
+                                    </MSkeletonLoader>
+                                </MSheet>
+                            </div>
+                        }
+                    </div>
+                </MCol>
+                <MCol Cols="12"
+                        Sm="3">
+                    <div class="fill-height index-panel right-tran">
+                        <MImage Style="width:200px;height:200px;background-color:lightsalmon;" Class="mx-auto">
 
-<MContainer class="content">
-    <MRow>
-        <MCol Cols="12"
-              Sm="3">
-            <div class="index-panel content-tran">
-
-            </div>
-        </MCol>
-        <MCol Cols="12"
-              Sm="6">
-            <div class="index-panel content-tran">
-
-            </div>
-        </MCol>
-        <MCol Cols="12"
-              Sm="3">
-            <div class="index-panel content-tran">
-                <MImage Style="width:200px;height:200px;background-color:lightsalmon;" Class="mx-auto">
-
-                </MImage>
-            </div>
-        </MCol>
-    </MRow>
-</MContainer>
+                        </MImage>
+                    </div>
+                </MCol>
+            </MRow>
+        </MContainer>
+    </MMain>
+</MApp>
 
 <style>
     .content {
-    margin-top: 10px;
-    width: 90%;
+    /*margin-top: 10px;*/
     height: 300px;
     /*background-color: lightgray;*/
 }
 </style>
 
 @code{
-
+    [CascadingParameter(Name = "IsDark")]
+    public bool IsDark { get; set; }
 }

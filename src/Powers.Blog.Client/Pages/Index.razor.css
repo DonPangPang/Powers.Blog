@@ -1,24 +1,22 @@
-﻿.index-panel {
+﻿html,
+*,
+body{
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.title-panel {
     background-color: lightcoral;
     height: 200px;
 }
 
-
-.content-tran {
-    animation: fadeInAnimation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+.index-panel {
+    background-color: lightcoral;
 }
 
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+.content-item {
+    margin-bottom: 10px;
+    background-color:darkturquoise;
+    animation-fill-mode: backwards !important;
 }
-
-
 
