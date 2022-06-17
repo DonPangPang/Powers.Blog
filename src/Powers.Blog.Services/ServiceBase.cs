@@ -126,7 +126,7 @@ namespace Powers.Blog.Services
             return await _repository.QueryByIdsAsync(ids);
         }
 
-        public PagedList<TEntity> QueryPaged(IDtoParameters parameters!!)
+        public PagedList<TEntity> QueryPaged(IDtoParameters parameters)
         {
             var query = Query();
             if (parameters is ISorting sorting)
@@ -138,7 +138,7 @@ namespace Powers.Blog.Services
                 throw new Exception("无分页参数");
         }
 
-        public async Task<PagedList<TEntity>> QueryPagedAsync(IDtoParameters parameters!!)
+        public async Task<PagedList<TEntity>> QueryPagedAsync(IDtoParameters parameters)
         {
             var query = Query();
             if (parameters is ISorting sorting)

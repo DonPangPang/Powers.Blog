@@ -1,0 +1,20 @@
+﻿
+<div class="category-root @Class" style="@Style">
+    <div>@Name</div>
+    <div>@Num</div>
+</div>
+
+@code {
+    [Parameter]
+    public string? Class { get; set; }
+    
+    [Parameter]
+    public string? Style { get; set; }
+    
+    [Parameter]
+    public string? Name { get; set; }
+
+    [Parameter]
+    public string? Num { get; set; } = default;
+
+}

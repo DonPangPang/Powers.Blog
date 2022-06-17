@@ -10,14 +10,22 @@
             <MRow Class="fill-height">
                 <MCol Cols="12"
                       Sm="3">
-                    <div class="fill-height left-tran rounded-xl elevation-20">
-                        <div style="height: 20px;"></div>
-                        @for (int i = 0; i < 30; i++)
-                        {
-                            <TagComponent Style=@($"animation-delay: {(@i * 100)}ms;") Name=@($"Blazor{@i}") class="left-tran" Color="@colors[@i % 10]">
-
-                            </TagComponent>
-                        }
+                    <div class="left-tran" style="background-color: antiquewhite;">
+                        <div>
+                            @for (var i = 0; i < 5; i++)
+                            {
+                                <CategoryComponent Name=@($"测试分类{@i}") Num=@($"{@i}") Class="left-tran elevation-5 rounded-lg" Style=@($"animation-delay: {@i * 100}ms;animation-fill-mode: backwards !important;")>
+                                                                                                                                                                                                
+                                </CategoryComponent>
+                            }
+                        </div>
+                        <div>
+                            @for (int i = 0; i < 30; i++)
+                            {
+                                <TagComponent Name=@($"Blazor{i}") Color="@colors[i % 10]" Class="elevation-15 left-tran" Style=@($"animation-delay: {@i * 50}ms;animation-fill-mode: backwards !important;")>
+                                </TagComponent>
+                            }
+                        </div>
                     </div>
                 </MCol>
                 <MCol Cols="12"
